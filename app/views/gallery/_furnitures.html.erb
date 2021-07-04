@@ -1,0 +1,20 @@
+<table>
+
+<tr>
+<% count=0 %>
+<% @furnitures.each do |furniture|%>
+
+<% if (count % 3) == 0%>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td><%= image_tag furniture.product_image ,:height=>"100",:width=>"100" %><br />
+Name : <%= furniture.name %><br />
+Price : <%= furniture.price %><br />
+Discription : <%= furniture.description %>
+
+<%= button_to 'Add to Cart', line_items_path(:store_id => furniture.id)%> </td>
+<% end %>
+</tr>
+</table>
